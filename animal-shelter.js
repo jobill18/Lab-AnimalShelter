@@ -35,7 +35,7 @@ class Dog extends Animal {
     this.food = "kibble";
   }
   greet() {
-    console.log(`woof, my name is ${this.name} the ${this.species}!`);
+    console.log(`Woof, my name is ${this.name} the ${this.species}!`);
   }
   feed() {
     this.hunger -= 20;
@@ -65,14 +65,21 @@ for (const a of animalData) {
   let animal;
   const hunger = a.hunger ? a.hunger : 50;
   if (a.species === "cat") {
-    const animal = new Cat(a.name, a.color, hunger);
+    animal = new Cat(a.name, a.color, hunger);
   } else if (a.species === "dog") {
-    const animal = new Dog(a.name, a.color, hunger);
+    animal = new Dog(a.name, a.color, hunger);
   } else {
-    const animal = new Animal(a.name, a.species, a.color, hunger);
+    animal = new Animal(a.name, a.species, a.color, hunger);
   }
   shelter.addAnimal(animal);
 }
 
 console.log(shelter.animals);
-console.log(shelter.getAnimalsBySpecies("dog"));
+
+for (const a of shelter.animals) {
+  a.greet();
+  a.feed();
+}
+
+// console.log(shelter.animals);
+// console.log(shelter.getAnimalsBySpecies("dog"));
