@@ -5,13 +5,17 @@ class Animal {
     this.species = species;
     this.color = color;
     this.hunger = hunger;
+    this.greeting = "Hi";
+    this.food = "food";
   }
   greet() {
-    console.log(`Hi my name is ${this.name} the ${this.species}!`);
+    console.log(
+      `${this.greeting} my name is ${this.name} the ${this.species}!`
+    );
   }
   feed() {
     this.hunger -= 20;
-    console.log("Yum, I love food!");
+    console.log(`Yum, I love ${this.food}!`);
   }
 }
 
@@ -19,13 +23,14 @@ class Cat extends Animal {
   constructor(name, color, hunger = 50) {
     super(name, "cat", color, hunger);
     this.food = "fish";
+    this.greeting = "Meow";
+    this.food = "fish";
   }
   greet() {
-    console.log(`Meow, my name is ${this.name} the ${this.species}!`);
+    super.greet();
   }
   feed() {
-    this.hunger -= 20;
-    console.log(`Yum, I love ${this.food}!`);
+    super.feed();
   }
 }
 
@@ -33,13 +38,14 @@ class Dog extends Animal {
   constructor(name, color, hunger) {
     super(name, "dog", color, hunger);
     this.food = "kibble";
+    this.greeting = "Woof";
+    this.food = "kibble";
   }
   greet() {
-    console.log(`Woof, my name is ${this.name} the ${this.species}!`);
+    super.greet();
   }
   feed() {
-    this.hunger -= 20;
-    console.log(`Yum, I love ${this.food}!`);
+    super.feed();
   }
 }
 
