@@ -14,3 +14,16 @@ class Animal {
     console.log("Yum, I love food!");
   }
 }
+
+class AnimalShelter {
+  constructor() {
+    this.animals = [];
+  }
+  addAnimal(animal) {
+    this.animals.push(animal);
+  }
+  adopt(animal) {
+    const animalIndex = this.animals.indexOf(animal);
+    this.animals.splice(animalIndex, 1);
+  }
+}
